@@ -11,7 +11,11 @@
   "dependencies": {
     "@clerk/nextjs": "^6.10.3",
     "@clerk/themes": "^2.2.13",
+    "@monaco-editor/loader": "^1.4.0",
+    "axios": "^1.7.9",
     "framer-motion": "^12.0.6",
+    "monaco-editor": "^0.52.2",
+    "monaco-editor-webpack-plugin": "^7.1.0",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

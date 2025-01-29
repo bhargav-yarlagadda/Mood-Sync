@@ -8,7 +8,7 @@ const Navbar = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <div className="w-full fixed top-2 px-6 py-3 flex items-center justify-center">
+    <div className="w-full  px-6 py-3 flex items-center justify-center">
       <div className="w-full max-w-6xl px-6 py-3 flex items-center justify-between bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg rounded-xl">
         <span className="text-white text-2xl font-bold tracking-wide cursor-pointer hover:scale-105 transition-transform">
           Mood Sync

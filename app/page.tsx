@@ -1,14 +1,13 @@
 "use client"
 import React from 'react'
-import { useRouter } from 'next/navigation'
-import { useUser } from '@clerk/nextjs'
+
+import Landing from '@/components/Landing'
 const page = () => {
-  const router = useRouter()
-  const {isLoaded,isSignedIn} = useUser()
+ 
 
   return (
     <div>
-      Page
+      <Landing/>
     </div>
   )
 }

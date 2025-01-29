@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import * as monaco from "monaco-editor";
+import * as monaco from "monaco-editor"; 
 import loader from "@monaco-editor/loader";
  // Import your utility function
 
@@ -14,7 +14,7 @@ const CodeEditor = () => {
     loader.init().then((monacoInstance) => {
       if (editorRef.current) {
         const editor = monacoInstance.editor.create(editorRef.current, {
-          value: "// Welcome to Mood Sync...\nprint('Hello World')",
+          value: "# Welcome to Mood Sync...\nprint('Hello World')",
           language: "python", // Default language
           fontFamily: "Fira Code, Monaco, monospace",
           lineNumbers: "on",

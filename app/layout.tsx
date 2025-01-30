@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import UserWrapper from "@/components/UserWrapper";
+
 import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 import Navbar from "@/components/Navbar";
 const geistSans = Geist({
@@ -41,7 +42,7 @@ export default function RootLayout({
             },
           }}
         >
-          
+
             <div className="w-full">
             <Navbar/>
             {children}

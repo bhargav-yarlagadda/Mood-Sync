@@ -1,13 +1,14 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import * as monaco from "monaco-editor"; 
+import * as monaco from "monaco-editor";
 import loader from "@monaco-editor/loader";
- // Import your utility function
+import { createSubmission } from "@/utils/execution";
+import { useEditorContext } from "@/context/EditorContext";
 
 const CodeEditor = () => {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const [editorInstance, setEditorInstance] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-
+  const { setError, setOutput, input } = useEditorContext();
 
   // Initialize Monaco editor
   useEffect(() => {
@@ -28,19 +29,40 @@ const CodeEditor = () => {
     return () => editorInstance?.dispose(); // Cleanup on unmount
   }, []);
 
-  // Callback to update the UI with the API response
-  
   // Function to submit code to Judge0 and retrieve output
-  
+  const submitAndExecuteCode = async () => {
+    const code = editorInstance?.getValue();
+    if (code) {
+      setError('')
+      setOutput('')
+      const res = await createSubmission(code, input);
+
+      if (res.stderr) {
+        setError(JSON.stringify(atob(res.stderr), null, 2)); // Set error if response contains error
+      } else {
+        setOutput(JSON.stringify(atob(res.stdout), null, 2)); // Set the output
+      }
+
+      console.log(res);
+    }
+  };
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
+      {/* Monaco Editor */}
       <div
         style={{ scrollbarWidth: "none" }}
         ref={editorRef}
         className="w-full h-full min-h-[550px] overflow-y-scroll p-2 border rounded-2xl shadow-md bg-[#1e1e1e]"
       />
-     
+      <button
+        className="bg-blue-600 rounded-lg mb-4 p-2"
+        onClick={submitAndExecuteCode}
+      >
+        Run
+      </button>
+
+      {/* Run Button */}
     </div>
   );
 };

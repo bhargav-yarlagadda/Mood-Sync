@@ -9,6 +9,7 @@ const CodeOutput = () => {
   const formatOutput = (text: string) => {
     if (!text) return "No output yet...";
 
+    // Replace \n with <br /> for line breaks
     return text.split("\n").map((line, index) => (
       <p key={index}>{line}</p>
     ));

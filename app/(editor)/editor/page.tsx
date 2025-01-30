@@ -11,17 +11,14 @@ const page = () => {
     <div className='w-full  grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-2'>
       
       {
-        isLoading?(<Loader/>):(<>
-        
+        isLoading && <Loader/>
+      }
         <div className='col-span-1  h-full px-8'>
         <CodeEditor/>
         </div>
         <div className='col-span-1  h-full px-8'>
         <CodeOutput/>
         </div>
-        </>)
-      }
-
       
     </div>
   )

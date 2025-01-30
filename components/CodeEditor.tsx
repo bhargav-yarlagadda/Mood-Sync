@@ -8,7 +8,7 @@ import { useEditorContext } from "@/context/EditorContext";
 const CodeEditor = () => {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const [editorInstance, setEditorInstance] = useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-  const { setError, setOutput, input } = useEditorContext();
+  const { setError, setOutput, input,setIsLoading } = useEditorContext();
 
   // Initialize Monaco editor
   useEffect(() => {
@@ -31,19 +31,20 @@ const CodeEditor = () => {
 
   // Function to submit code to Judge0 and retrieve output
   const submitAndExecuteCode = async () => {
+    
     const code = editorInstance?.getValue();
     if (code) {
+      setIsLoading(true)
       setError('')
       setOutput('')
       const res = await createSubmission(code, input);
 
       if (res.stderr) {
-        setError(JSON.stringify(atob(res.stderr), null, 2)); // Set error if response contains error
+        setError(atob(res.stderr)); // Set error if response contains error
       } else {
-        setOutput(JSON.stringify(atob(res.stdout), null, 2)); // Set the output
+        setOutput(atob(res.stdout)); // Set the output
       }
-
-      console.log(res);
+      setIsLoading(false)
     }
   };
 

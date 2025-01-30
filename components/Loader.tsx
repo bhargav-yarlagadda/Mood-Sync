@@ -2,10 +2,14 @@ import React from 'react';
 
 const Loader = () => {
   return (
-    <div className="flex absolute inset-0 w-screen h-screen bg-transparent backdrop-blur-sm bg-opacity-40 justify-center items-center space-x-2">
-      <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce delay-100"></div>
-      <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce delay-200"></div>
-      <div className="w-3 h-3 rounded-full bg-blue-500 animate-bounce delay-300"></div>
+    <div className="flex fixed inset-0 z-20 bg-black bg-opacity-50 backdrop-blur-sm justify-center items-center">
+      {/* Loader container */}
+      <div className="flex items-center justify-center space-x-8">
+        {/* Individual loader items with inline animation delays */}
+        <div className="w-8 h-8 rounded-full bg-white animate-bounce" style={{ animationDelay: '0s' }}></div>
+        <div className="w-8 h-8 rounded-full bg-white animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+        <div className="w-8 h-8 rounded-full bg-white animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+      </div>
     </div>
   );
 };

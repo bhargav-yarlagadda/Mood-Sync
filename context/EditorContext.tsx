@@ -11,6 +11,8 @@ interface EditorContextType {
   setError: (value: string) => void;
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
+  enableAITracking: boolean;
+  setEnableAITracking: (value: boolean) => void;
 }
 
 // Create context with undefined as a fallback
@@ -22,9 +24,11 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
   const [output, setOutput] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [enableAITracking, setEnableAITracking] = useState<boolean>(false);
+
 
   return (
-    <EditorContext.Provider value={{ input, setInput, output, setOutput, error, setError, isLoading, setIsLoading }}>
+    <EditorContext.Provider value={{ input, setInput, output, setOutput, error, setError, isLoading, setIsLoading ,enableAITracking,setEnableAITracking}}>
       {children}
     </EditorContext.Provider>
   );

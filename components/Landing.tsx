@@ -8,7 +8,7 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col font-sans">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-32 px-6 bg-gradient-to-r from-blue-100 to-teal-100">
+      <section className="flex flex-col h-screen items-center justify-center text-center py-32 px-6 bg-gradient-to-r from-blue-100 to-teal-100">
         <motion.h1
           className="text-5xl font-bold text-blue-600 mb-4"
           initial={{ opacity: 0, y: -60 }}

@@ -70,7 +70,7 @@ const Page = () => {
       }}
       className="w-full h-full py-3 grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-2"
     >
-      {enableAITracking && <video ref={videoRef} autoPlay muted  />}
+      {enableAITracking && <video ref={videoRef} autoPlay muted hidden className="hidden"  />}
       {isLoading && <Loader />}
       <div className="col-span-1 mt-20 px-8">
         <CodeEditor />

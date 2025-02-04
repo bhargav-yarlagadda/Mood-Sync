@@ -75,3 +75,25 @@ async function getSubmission(token: string) {
     return null;
   }
 }
+
+
+export const getBackgroundColor = (exp: string) => {
+    switch (exp) {
+      case "neutral":
+        return "#000"; // Soft black – keeps it neutral
+      case "happy":
+        return "#FF6600"; // Warm Orange – enhances joy but isn’t overwhelming
+      case "angry":
+        return "#4A90E2"; // Cool blue – calms down intensity
+      case "sad":
+        return "#F4A261"; // Warm peach – provides warmth and comfort
+      case "surprised":
+        return "#FA812F"; // Soft Yellow – brings balance and reduces shock
+      case "disgusted":
+        return "#A29BFE"; // Gentle lavender – soothes unease
+      case "fearful":
+        return "#FFB6B9"; // Soft pink – reassures and provides a sense of safety
+      default:
+        return "#1A1A1D"; // Default dark gray
+    }
+  };
